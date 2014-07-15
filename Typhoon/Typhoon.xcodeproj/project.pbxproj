@@ -97,6 +97,7 @@
 		7C28EA7619740E7A00533018 /* iniConfigReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iniConfigReader.m; sourceTree = "<group>"; };
 		7C28EA7819740E7A00533018 /* STDateTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDateTimePickerView.h; sourceTree = "<group>"; };
 		7C28EA7919740E7A00533018 /* STDateTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDateTimePickerView.m; sourceTree = "<group>"; };
+		7C28EA871974123800533018 /* ImageConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageConfig.h; sourceTree = "<group>"; };
 		EC06D119226A40D6B2AE79AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +167,7 @@
 				7C28EA3019740D7500533018 /* Main_iPad.storyboard */,
 				7C28EA3319740D7500533018 /* ViewController.h */,
 				7C28EA3419740D7500533018 /* ViewController.m */,
+				7C28EA871974123800533018 /* ImageConfig.h */,
 				7C28EA5319740E7A00533018 /* Base */,
 				7C28EA5C19740E7A00533018 /* General */,
 				7C28EA3619740D7500533018 /* Images.xcassets */,

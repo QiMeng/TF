@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "QMMapViewController.h"
+@interface ViewController : QMMapViewController
 
 @end
