@@ -185,6 +185,10 @@
     DLog(@"%@",asiurl);
     
     asiurl = [asiurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    asiurl = [asiurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    DLog( @"转:%@",asiurl);
+    
     baseGet = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:asiurl]];
     baseGet.delegate = self;
     baseGet.timeOutSeconds = 30;

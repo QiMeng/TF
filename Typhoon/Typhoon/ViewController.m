@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 
+#import "TaiFengPoint.h"
+#import "HaiQuPoint.h"
+#import "YuJingPoint.h"
+#import "TianQiPoint.h"
+
+
 @interface ViewController ()
 
 @end
@@ -19,8 +25,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
     [self initBottom];
+    
+    [self initRightView];
+    
     
 }
 #pragma mark - 底层视图
@@ -112,6 +120,49 @@
     
 }
 
+#pragma mark - 右边设置界面
+- (void)initRightView {
+    
+    __block ViewController *blockSelf = self;
+    
+    if (!haiquCtrl) {
+        haiquCtrl = [[HaiQuViewController alloc]init];
+        haiquCtrl.view.frame = CGRectMake(10, 10, self.view.width - 20, self.view.height - 100);
+        [self layerShadow:haiquCtrl.view];
+        
+        haiquCtrl.hiddenClickBlock = ^(id sender) {
+            [blockSelf hiddenCtrl:sender];
+        };
+        
+//        rightCtrl.hiddenClickBlock = ^(id sender) {
+//            [self hiddenRightCtrl];
+//        };
+        
+        
+        [self.view addSubview:haiquCtrl.view];
+    }
+    
+    
+}
+- (void)showCtrl:(UIViewController *)ctrl {
+    
+    if (!ctrl.view.alpha) {
+        
+        [UIView animateWithDuration:.3 animations:^{
+            ctrl.view.alpha = 1;
+        }];
+    }
+}
+- (void)hiddenCtrl:(UIViewController *)ctrl {
+    
+    if (ctrl.view.alpha) {
+        
+        [UIView animateWithDuration:.3 animations:^{
+            ctrl.view.alpha = 0;
+        }];
+    }
+}
+
 #pragma mark - 底部 台风
 - (void)taifengBtn:(UIButton *)btn {
     btn.selected = !btn.selected;
@@ -128,8 +179,10 @@
     btn.selected = !btn.selected;
     if (btn.selected) {
         DLog(@"选中台风");
+        [self showCtrl:haiquCtrl];
     }else {
         DLog(@"没选中台风");
+        [self hiddenCtrl:haiquCtrl];
     }
 }
 #pragma mark - 底部 预警

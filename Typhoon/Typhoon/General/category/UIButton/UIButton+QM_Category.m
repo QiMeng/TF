@@ -34,8 +34,8 @@
     [button setTitle:normalTitle forState:UIControlStateNormal];
     [button setTitle:selectedTitle forState:UIControlStateSelected];
     
-    [button setTitleColor:normalTitleColor?normalTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-    [button setTitleColor:selectedTitleColor?selectedTitleColor:[UIColor clearColor] forState:UIControlStateSelected];
+    [button setTitleColor:normalTitleColor?normalTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:selectedTitleColor?selectedTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     
     button.titleLabel.font = titleFont?titleFont: [UIFont boldSystemFontOfSize:button.titleLabel.font.pointSize];
     

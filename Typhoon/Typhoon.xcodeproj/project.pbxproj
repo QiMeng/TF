@@ -35,6 +35,11 @@
 		7C28EA8419740E7A00533018 /* UIView+QM_Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28EA7319740E7A00533018 /* UIView+QM_Category.m */; };
 		7C28EA8519740E7A00533018 /* iniConfigReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28EA7619740E7A00533018 /* iniConfigReader.m */; };
 		7C28EA8619740E7A00533018 /* STDateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28EA7919740E7A00533018 /* STDateTimePickerView.m */; };
+		7C483E011976B52800773FDF /* HaiQuPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C483E001976B52800773FDF /* HaiQuPoint.m */; };
+		7C483E041976B53A00773FDF /* YuJingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C483E031976B53A00773FDF /* YuJingPoint.m */; };
+		7C483E071976B54500773FDF /* TianQiPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C483E061976B54500773FDF /* TianQiPoint.m */; };
+		7C483E0A1976B55500773FDF /* TaiFengPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C483E091976B55500773FDF /* TaiFengPoint.m */; };
+		7C483E0D1976B68E00773FDF /* HaiQuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C483E0C1976B68E00773FDF /* HaiQuViewController.m */; };
 		DED690A6DA494E928B504590 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FB8E232E924475B06A6608 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +103,16 @@
 		7C28EA7819740E7A00533018 /* STDateTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDateTimePickerView.h; sourceTree = "<group>"; };
 		7C28EA7919740E7A00533018 /* STDateTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDateTimePickerView.m; sourceTree = "<group>"; };
 		7C28EA871974123800533018 /* ImageConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageConfig.h; sourceTree = "<group>"; };
+		7C483DFF1976B52800773FDF /* HaiQuPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaiQuPoint.h; sourceTree = "<group>"; };
+		7C483E001976B52800773FDF /* HaiQuPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaiQuPoint.m; sourceTree = "<group>"; };
+		7C483E021976B53A00773FDF /* YuJingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuJingPoint.h; sourceTree = "<group>"; };
+		7C483E031976B53A00773FDF /* YuJingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuJingPoint.m; sourceTree = "<group>"; };
+		7C483E051976B54500773FDF /* TianQiPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TianQiPoint.h; sourceTree = "<group>"; };
+		7C483E061976B54500773FDF /* TianQiPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TianQiPoint.m; sourceTree = "<group>"; };
+		7C483E081976B55500773FDF /* TaiFengPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaiFengPoint.h; sourceTree = "<group>"; };
+		7C483E091976B55500773FDF /* TaiFengPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaiFengPoint.m; sourceTree = "<group>"; };
+		7C483E0B1976B68E00773FDF /* HaiQuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaiQuViewController.h; sourceTree = "<group>"; };
+		7C483E0C1976B68E00773FDF /* HaiQuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaiQuViewController.m; sourceTree = "<group>"; };
 		EC06D119226A40D6B2AE79AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,9 +180,10 @@
 				7C28EA2B19740D7500533018 /* AppDelegate.m */,
 				7C28EA2D19740D7500533018 /* Main_iPhone.storyboard */,
 				7C28EA3019740D7500533018 /* Main_iPad.storyboard */,
+				7C28EA871974123800533018 /* ImageConfig.h */,
 				7C28EA3319740D7500533018 /* ViewController.h */,
 				7C28EA3419740D7500533018 /* ViewController.m */,
-				7C28EA871974123800533018 /* ImageConfig.h */,
+				7C483DFA1976B4BC00773FDF /* UI */,
 				7C28EA5319740E7A00533018 /* Base */,
 				7C28EA5C19740E7A00533018 /* General */,
 				7C28EA3619740D7500533018 /* Images.xcassets */,
@@ -326,6 +342,55 @@
 			path = STDateTimePickerView;
 			sourceTree = "<group>";
 		};
+		7C483DFA1976B4BC00773FDF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7C483DFB1976B4C300773FDF /* 台风 */,
+				7C483DFD1976B4DE00773FDF /* 海区预报 */,
+				7C483DFC1976B4CE00773FDF /* 预警 */,
+				7C483DFE1976B4EF00773FDF /* 天气预报 */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7C483DFB1976B4C300773FDF /* 台风 */ = {
+			isa = PBXGroup;
+			children = (
+				7C483E081976B55500773FDF /* TaiFengPoint.h */,
+				7C483E091976B55500773FDF /* TaiFengPoint.m */,
+			);
+			name = "台风";
+			sourceTree = "<group>";
+		};
+		7C483DFC1976B4CE00773FDF /* 预警 */ = {
+			isa = PBXGroup;
+			children = (
+				7C483E021976B53A00773FDF /* YuJingPoint.h */,
+				7C483E031976B53A00773FDF /* YuJingPoint.m */,
+			);
+			name = "预警";
+			sourceTree = "<group>";
+		};
+		7C483DFD1976B4DE00773FDF /* 海区预报 */ = {
+			isa = PBXGroup;
+			children = (
+				7C483DFF1976B52800773FDF /* HaiQuPoint.h */,
+				7C483E001976B52800773FDF /* HaiQuPoint.m */,
+				7C483E0B1976B68E00773FDF /* HaiQuViewController.h */,
+				7C483E0C1976B68E00773FDF /* HaiQuViewController.m */,
+			);
+			name = "海区预报";
+			sourceTree = "<group>";
+		};
+		7C483DFE1976B4EF00773FDF /* 天气预报 */ = {
+			isa = PBXGroup;
+			children = (
+				7C483E051976B54500773FDF /* TianQiPoint.h */,
+				7C483E061976B54500773FDF /* TianQiPoint.m */,
+			);
+			name = "天气预报";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,10 +536,15 @@
 				7C28EA2C19740D7500533018 /* AppDelegate.m in Sources */,
 				7C28EA8319740E7A00533018 /* UITextField+QM_Category.m in Sources */,
 				7C28EA8419740E7A00533018 /* UIView+QM_Category.m in Sources */,
+				7C483E041976B53A00773FDF /* YuJingPoint.m in Sources */,
 				7C28EA7B19740E7A00533018 /* QMNavigationController.m in Sources */,
 				7C28EA2819740D7500533018 /* main.m in Sources */,
 				7C28EA8619740E7A00533018 /* STDateTimePickerView.m in Sources */,
+				7C483E011976B52800773FDF /* HaiQuPoint.m in Sources */,
+				7C483E0A1976B55500773FDF /* TaiFengPoint.m in Sources */,
 				7C28EA7A19740E7A00533018 /* QMMapViewController.m in Sources */,
+				7C483E0D1976B68E00773FDF /* HaiQuViewController.m in Sources */,
+				7C483E071976B54500773FDF /* TianQiPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
