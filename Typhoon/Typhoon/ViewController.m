@@ -29,13 +29,11 @@
     [self rightNavBarImage:@"cog" withText:@""];
     [self leftNavBarImage:@"list" withText:@""];
     
+    
+    
     [self initUI];
  
     [self reloadUrlData];
-    
-    
-//    [self asiGetDic:@{kASIUrl: @"http://typhoon.weather.gov.cn/Typhoon/micaps?flag=1&time=24&type=inshore",
-//                      kASIName:@"haiqu"}];
     
 }
 
