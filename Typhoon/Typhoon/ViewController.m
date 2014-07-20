@@ -25,186 +25,187 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self initBottom];
+    navTitle.text = @"去哪儿";
+    [self rightNavBarImage:@"cog" withText:@""];
+    [self leftNavBarImage:@"list" withText:@""];
     
-    [self initRightView];
+    [self initUI];
+ 
+    [self reloadUrlData];
     
     
-}
-#pragma mark - 底层视图
-- (void)initBottom {
-    
-    //创建底部视图
-    UIView *  bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.height - 49, 49*4+20, 49)];
-    bottomView.center = CGPointMake(self.view.center.x, bottomView.center.y);
-    bottomView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [self.view addSubview:bottomView];
-    
-    //创建底部视图背景
-    UIImageView * bottomBg = [[UIImageView alloc]initWithFrame:CGRectMake(0, bottomView.height/2, bottomView.width, bottomView.height/2)];
-    bottomBg.image = [UIImage imageAliquotsTensile:kBottomBg];
-    bottomBg.backgroundColor = bottomBg.image?[UIColor clearColor]:[UIColor redColor];
-    [bottomView addSubview:bottomBg];
-    
-    float btnWidth = (bottomBg.width - 20)/4;
-    
-    UIImage * pImage = [UIImage imageNamed:kBottomIcon_Taifeng_n];
-    
-    //创建底部台风按钮
-    UIButton * taifengBtn = [UIButton allocButtonFrame:CGRectMake(10, 0, btnWidth, bottomView.height)
-                                           normalTitle:pImage?@"":@"台风"
-                                         selectedTitle:@""
-                                      normalTitleColor:nil
-                                    selectedTitleColor:nil
-                                       backgroundColor:pImage?[UIColor clearColor]:[UIColor yellowColor]
-                                             titleFont:nil
-                                           normalImage:[UIImage imageNamed:kBottomIcon_Taifeng_n]
-                                         selectedImage:[UIImage imageNamed:kBottomIcon_Taifeng_s]
-                                         normalBgImage:nil
-                                       selectedBgImage:nil
-                                                target:self
-                                              selector:@selector(taifengBtn:)
-                                      autoresizingMask:UIViewAutoresizingNone];
-    [bottomView addSubview:taifengBtn];
-    
-    //创建底部海区预报
-    UIButton * haiquBtn = [UIButton allocButtonFrame:CGRectMake(taifengBtn.right, taifengBtn.top, btnWidth, bottomView.height)
-                                           normalTitle:pImage?@"":@"海区"
-                                         selectedTitle:@""
-                                      normalTitleColor:nil
-                                    selectedTitleColor:nil
-                                       backgroundColor:pImage?[UIColor clearColor]:[UIColor purpleColor]
-                                             titleFont:nil
-                                           normalImage:[UIImage imageNamed:kBottomIcon_Haiqu_n]
-                                         selectedImage:[UIImage imageNamed:kBottomIcon_Haiqu_s]
-                                         normalBgImage:nil
-                                       selectedBgImage:nil
-                                                target:self
-                                              selector:@selector(haiquBtn:)
-                                      autoresizingMask:UIViewAutoresizingNone];
-    [bottomView addSubview:haiquBtn];
-
-    //创建底部预警
-    UIButton * yujingBtn = [UIButton allocButtonFrame:CGRectMake(haiquBtn.right, haiquBtn.top, btnWidth, bottomView.height)
-                                         normalTitle:pImage?@"":@"预警"
-                                       selectedTitle:@""
-                                    normalTitleColor:nil
-                                  selectedTitleColor:nil
-                                     backgroundColor:pImage?[UIColor clearColor]:[UIColor brownColor]
-                                           titleFont:nil
-                                         normalImage:[UIImage imageNamed:kBottomIcon_Yujing_n]
-                                       selectedImage:[UIImage imageNamed:kBottomIcon_Yujing_s]
-                                       normalBgImage:nil
-                                     selectedBgImage:nil
-                                              target:self
-                                            selector:@selector(yujingBtn:)
-                                    autoresizingMask:UIViewAutoresizingNone];
-    [bottomView addSubview:yujingBtn];
-
-    //创建底部天气
-    UIButton * tianqiBtn = [UIButton allocButtonFrame:CGRectMake(yujingBtn.right, yujingBtn.top, btnWidth, bottomView.height)
-                                          normalTitle:pImage?@"":@"天气"
-                                        selectedTitle:@""
-                                     normalTitleColor:nil
-                                   selectedTitleColor:nil
-                                      backgroundColor:pImage?[UIColor clearColor]:[UIColor magentaColor]
-                                            titleFont:nil
-                                          normalImage:[UIImage imageNamed:kBottomIcon_Yujing_n]
-                                        selectedImage:[UIImage imageNamed:kBottomIcon_Yujing_s]
-                                        normalBgImage:nil
-                                      selectedBgImage:nil
-                                               target:self
-                                             selector:@selector(tianqiBtn:)
-                                     autoresizingMask:UIViewAutoresizingNone];
-    [bottomView addSubview:tianqiBtn];
+//    [self asiGetDic:@{kASIUrl: @"http://typhoon.weather.gov.cn/Typhoon/micaps?flag=1&time=24&type=inshore",
+//                      kASIName:@"haiqu"}];
     
 }
 
-#pragma mark - 右边设置界面
-- (void)initRightView {
+- (void)reloadUrlData {
     
-    __block ViewController *blockSelf = self;
+    NSString * haiquUrl = @"http://typhoon.weather.gov.cn/Typhoon/micaps?flag=1&time=24&type=inshore";
+    haiquUrl = [haiquUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
     
-    if (!haiquCtrl) {
-        haiquCtrl = [[HaiQuViewController alloc]init];
-        haiquCtrl.view.frame = CGRectMake(10, 10, self.view.width - 20, self.view.height - 100);
-        [self layerShadow:haiquCtrl.view];
-        
-        haiquCtrl.hiddenClickBlock = ^(id sender) {
-            [blockSelf hiddenCtrl:sender];
-        };
-        
-//        rightCtrl.hiddenClickBlock = ^(id sender) {
-//            [self hiddenRightCtrl];
-//        };
-        
-        
-        [self.view addSubview:haiquCtrl.view];
-    }
+    NSString * tianqiUrl =@"http://typhoon.weather.gov.cn/Typhoon/proxy2.jsp?u=weather_level&p=1";
+    tianqiUrl = [tianqiUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString * yujingUrl =@"http://typhoon.weather.gov.cn/Typhoon/proxy2.jsp?u=weather_alarm&p=3@province=@signallevel=@signaltype=";
+    yujingUrl = [yujingUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
-}
-- (void)showCtrl:(UIViewController *)ctrl {
+    [self asiNetworkQueuesGet:@[@{kASIName: @"tianqi",
+                                  kASIUrl: tianqiUrl},
+                                @{kASIName: @"haiqu",
+                                  kASIUrl: haiquUrl},
+                                @{kASIName: @"yujing",
+                                  kASIUrl:yujingUrl}]];
     
-    if (!ctrl.view.alpha) {
-        
-        [UIView animateWithDuration:.3 animations:^{
-            ctrl.view.alpha = 1;
-        }];
-    }
-}
-- (void)hiddenCtrl:(UIViewController *)ctrl {
-    
-    if (ctrl.view.alpha) {
-        
-        [UIView animateWithDuration:.3 animations:^{
-            ctrl.view.alpha = 0;
-        }];
-    }
 }
 
-#pragma mark - 底部 台风
-- (void)taifengBtn:(UIButton *)btn {
+
+
+- (void)initUI {
+    
+    myMapView.frame = CGRectMake(kEmpty, kEmpty, self.view.width - 2*kEmpty, self.view.height - kEmpty - kMainBtnHeight);
+    
+    [myMapView viewLineColor:[UIColor whiteColor] borderWidth:kBorderWidth cornerRadius:0];
+    
+    float width = (myMapView.width - 2*kEmpty)/4.0;
+    
+    UIButton * tfbtn = [UIButton allocButtonFrame:CGRectMake(myMapView.left+kEmpty, myMapView.bottom-kBorderWidth, width, kMainBtnHeight)
+                                      normalTitle:@"台风"
+                                    selectedTitle:@"台风"
+                                 normalTitleColor:[UIColor blackColor]
+                               selectedTitleColor:[UIColor redColor]
+                                  backgroundColor:nil
+                                        titleFont:nil
+                                      normalImage:nil
+                                    selectedImage:nil
+                                    normalBgImage:nil
+                                  selectedBgImage:nil
+                                           target:self
+                                         selector:@selector(tfbtn:)
+                                 autoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    [tfbtn viewLineColor:[UIColor whiteColor] borderWidth:kBorderWidth cornerRadius:0];
+    [self.view addSubview:tfbtn];
+    
+    UIButton * hqbtn = [UIButton allocButtonFrame:CGRectMake(tfbtn.right,tfbtn.top, tfbtn.width, tfbtn.height)
+                                      normalTitle:@"海区"
+                                    selectedTitle:@"海区"
+                                 normalTitleColor:[UIColor blackColor]
+                               selectedTitleColor:[UIColor redColor]
+                                  backgroundColor:nil
+                                        titleFont:nil
+                                      normalImage:nil
+                                    selectedImage:nil
+                                    normalBgImage:nil
+                                  selectedBgImage:nil
+                                           target:self
+                                         selector:@selector(tfbtn:)
+                                 autoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    [hqbtn viewLineColor:[UIColor whiteColor] borderWidth:kBorderWidth cornerRadius:0];
+    [self.view addSubview:hqbtn];
+    
+    UIButton * yjBtn = [UIButton allocButtonFrame:CGRectMake(hqbtn.right,tfbtn.top, tfbtn.width, tfbtn.height)
+                                      normalTitle:@"预警"
+                                    selectedTitle:@"预警"
+                                 normalTitleColor:[UIColor blackColor]
+                               selectedTitleColor:[UIColor redColor]
+                                  backgroundColor:nil
+                                        titleFont:nil
+                                      normalImage:nil
+                                    selectedImage:nil
+                                    normalBgImage:nil
+                                  selectedBgImage:nil
+                                           target:self
+                                         selector:@selector(tfbtn:)
+                                 autoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    [yjBtn viewLineColor:[UIColor whiteColor] borderWidth:kBorderWidth cornerRadius:0];
+    [self.view addSubview:yjBtn];
+    
+    UIButton * tqBtn = [UIButton allocButtonFrame:CGRectMake(yjBtn.right,tfbtn.top, tfbtn.width, tfbtn.height)
+                                      normalTitle:@"天气预报"
+                                    selectedTitle:@"天气预报"
+                                 normalTitleColor:[UIColor blackColor]
+                               selectedTitleColor:[UIColor redColor]
+                                  backgroundColor:nil
+                                        titleFont:nil
+                                      normalImage:nil
+                                    selectedImage:nil
+                                    normalBgImage:nil
+                                  selectedBgImage:nil
+                                           target:self
+                                         selector:@selector(tfbtn:)
+                                 autoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    [tqBtn viewLineColor:[UIColor whiteColor] borderWidth:kBorderWidth cornerRadius:0];
+    [self.view addSubview:tqBtn];
+    
+    
+    
+    
+}
+- (void)tfbtn:(UIButton *)btn {
     btn.selected = !btn.selected;
     
-    if (btn.selected) {
-        DLog(@"选中台风");
-    }else {
-        DLog(@"没选中台风");
+}
+
+#pragma mark - ASIHTTPRequest ----------------------------------------
+- (void)asiGetFinished:(ASIHTTPRequest *)rq {
+    NSString *requestString = [rq responseString];
+    id data = [requestString objectFromJSONString];
+    DLog(@"%@",data);
+    
+    NSString * asiname = [rq.userInfo objectForKeyNotNull:kASIName];
+    if ([asiname isEqualToString:@"haiqu"] && [data isKindOfClass:[NSArray class]]) {
+        
+        for (NSArray * pArray in data) {
+            
+            [myMapView addAnnotation:[HaiQuPoint itemFormArray:pArray]];
+            
+        }
+        
+
     }
     
-}
-#pragma mark - 底部 海区
-- (void)haiquBtn:(UIButton *)btn {
-    btn.selected = !btn.selected;
-    if (btn.selected) {
-        DLog(@"选中台风");
-        [self showCtrl:haiquCtrl];
-    }else {
-        DLog(@"没选中台风");
-        [self hiddenCtrl:haiquCtrl];
+    if ([asiname isEqualToString:@"tianqi"] && [data isKindOfClass:[NSArray class]]) {
+        for (NSArray * pArray in data) {
+            
+            [myMapView addAnnotation:[TianQiPoint itemFormArray:pArray]];
+            
+        }
     }
-}
-#pragma mark - 底部 预警
-- (void)yujingBtn:(UIButton *)btn {
-    btn.selected = !btn.selected;
-    if (btn.selected) {
-        DLog(@"选中台风");
-    }else {
-        DLog(@"没选中台风");
+    
+    if ([asiname isEqualToString:@"yujing"] && [data isKindOfClass:[NSArray class]]) {
+        for (NSArray * pArray in data) {
+            
+            [myMapView addAnnotation:[YuJingPoint itemFormArray:pArray]];
+            
+        }
     }
+    
+    [self mapRect];
+    
 }
 
-#pragma mark - 底部 天气
-- (void)tianqiBtn:(UIButton *)btn {
-    btn.selected = !btn.selected;
-    if (btn.selected) {
-        DLog(@"选中台风");
-    }else {
-        DLog(@"没选中台风");
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
+    
+    MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"ann"];
+    
+    if ([annotation isKindOfClass:[HaiQuPoint class]]) {
+        
+            pinView.pinColor = MKPinAnnotationColorGreen;//设置pinColor属性
+        
+    }else if ([annotation isKindOfClass:[TianQiPoint class]]) {
+            pinView.pinColor = MKPinAnnotationColorPurple;//设置pinColor属性
+        
+    }else if ([annotation isKindOfClass:[YuJingPoint class]]) {
+            pinView.pinColor = MKPinAnnotationColorRed;//设置pinColor属性
+        
     }
-}
 
+    pinView.canShowCallout = YES;
+    
+    return pinView;
+}
 
 - (void)didReceiveMemoryWarning
 {

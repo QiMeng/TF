@@ -8,12 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "QMMapViewController.h"
-#import "HaiQuViewController.h"
 
-@interface ViewController : QMMapViewController {
-    
-    HaiQuViewController * haiquCtrl;
-    
-}
+@interface ViewController : QMMapViewController
 
 @end

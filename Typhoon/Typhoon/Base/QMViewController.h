@@ -70,6 +70,9 @@
  */
 - (void)asiNetworkQueuesPost:(NSArray *)array;
 
+//  NetworkQueues- get
+- (void)asiNetworkQueuesGet:(NSArray *)array;
+
 
 - (void)layerShadow:(UIView *)view;
 

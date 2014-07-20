@@ -10,4 +10,13 @@
 
 @interface YuJingPoint : MKPointAnnotation
 
+@property (nonatomic, assign) float jd;
+@property (nonatomic, assign) float wd;
+
+
++ (id)itemFormDic:(NSDictionary *)dic;
+
+
++ (id)itemFormArray:(NSArray *)array;
+
 @end

@@ -10,4 +10,15 @@
 
 @interface TianQiPoint : MKPointAnnotation
 
+@property (nonatomic, assign) float jd;
+@property (nonatomic, assign) float wd;
+@property (nonatomic, copy) NSString * city;
+@property (nonatomic, copy) NSString * weather;
+
+
++ (id)itemFormDic:(NSDictionary *)dic;
+
+
++ (id)itemFormArray:(NSArray *)array;
+
 @end

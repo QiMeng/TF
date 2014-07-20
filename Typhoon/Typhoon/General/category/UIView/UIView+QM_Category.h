@@ -25,4 +25,7 @@
 //描边,圆角
 - (void) borderAndRadiusColor:(UIColor *)color;
 
+
+- (void)viewLineColor:(UIColor *)color borderWidth:(float)border cornerRadius:(float)radiu;
+
 @end

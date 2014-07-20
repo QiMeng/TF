@@ -22,7 +22,7 @@
 
 
 
-
 @protocol ImageConfig <NSObject>
+
 
 @end

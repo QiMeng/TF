@@ -64,6 +64,11 @@
     self.layer.borderWidth =1.0;
     self.layer.cornerRadius =3.0;
 }
-
+- (void)viewLineColor:(UIColor *)color borderWidth:(float)border cornerRadius:(float)radiu {
+    self.layer.borderColor = color.CGColor;
+    self.layer.borderWidth = border;
+    self.layer.cornerRadius = radiu;
+    self.layer.masksToBounds = YES;
+}
 
 @end

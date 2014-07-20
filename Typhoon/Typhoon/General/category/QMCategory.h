@@ -44,6 +44,7 @@
 #define DEVICE_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define DEVICE_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
+#define kEmpty 5
 
 @protocol QMCategory <NSObject>
 

@@ -35,8 +35,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGBA(230, 230, 230, 1);//[UIColor whiteColor];
+    self.navigationController.view.backgroundColor = self.view.backgroundColor;
 }
 
 #pragma mark - navBar ----------------------------------------------
@@ -44,8 +44,7 @@
     
     if (!navTitle) {
 
-        
-        navTitle = [UILabel allocLabelFrame:CGRectMake(0, 0, self.view.width, self.navigationController.navigationBar.height)
+        navTitle = [UILabel allocLabelFrame:CGRectMake(0, 0, 200, self.navigationController.navigationBar.height)
                                        text:self.title
                                        font:[UIFont boldSystemFontOfSize:20]
                                   textColor:[UIColor whiteColor]
@@ -256,6 +255,36 @@
     DLog(@"%@",data);
     
 }
+//  NetworkQueues- get
+- (void)asiNetworkQueuesGet:(NSArray *)array {
+    [self asiDealloc:baseQuene];
+    
+    baseQuene = [[ASINetworkQueue alloc] init];
+    baseQuene.delegate = self;
+    NSString *urlString = nil;
+    for (NSDictionary *tempDic in array) {
+        
+        urlString =[tempDic objectForKey:kASIUrl];
+        DLog(@"%@",urlString);
+        
+        ASIHTTPRequest *getRq = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
+        getRq.delegate = self;
+        getRq.timeOutSeconds = 30;
+        getRq.userInfo = @{kASIName: [tempDic objectForKey:kASIName]};
+        
+        [baseQuene addOperation:getRq];
+    }
+//    [baseQuene setMaxConcurrentOperationCount:1];
+    baseQuene.shouldCancelAllRequestsOnFailure = NO;
+    [baseQuene setRequestDidFinishSelector:@selector(asiGetFinished:)];
+    [baseQuene setRequestDidFailSelector:@selector(asiGetFailed:)];
+    [baseQuene setQueueDidFinishSelector:@selector(asiQueneFinish:)];
+    
+    [baseQuene go];
+    
+    
+    
+}
 //  NetworkQueues- post
 - (void)asiNetworkQueuesPost:(NSArray *)array {
     [self asiDealloc:baseQuene];
@@ -300,6 +329,7 @@
     
     
 }
+
 - (void)asiQueneFinish:(ASINetworkQueue *)rq {
     
 }
