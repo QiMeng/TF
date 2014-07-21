@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 QiMengJin_LYS. All rights reserved.
 //
 
-#import "QMMapViewController.h"
+#import "WhereTFViewController.h"
 
-@interface YJViewController : QMMapViewController
+@interface YJViewController : WhereTFViewController
 
 @end

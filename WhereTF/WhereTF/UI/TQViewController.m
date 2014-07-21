@@ -7,7 +7,8 @@
 //
 
 #import "TQViewController.h"
-
+#import "TQListViewController.h"
+#import "TianQiPoint.h"
 @interface TQViewController ()
 
 @end
@@ -27,8 +28,49 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    navTitle.text = @"天气预报";
+    [self rightNavBarImage:@"list" withText:@""];
+    [self leftNavBarImage:@"cog" withText:@""];
+    [self reloadUrl];
 }
 
+- (void)rightNavBar:(id)sender {
+    
+    TQListViewController * ctrl = [[TQListViewController alloc]init];
+    [ctrl leftDefaultNavBar];
+    ctrl.title = @"天气列表";
+    [ctrl reloadArray:myMapView.annotations];
+    [self.navigationController pushViewController:ctrl animated:YES];
+    
+}
+
+- (void)reloadUrl {
+    
+    NSString * tianqiUrl =@"http://typhoon.weather.gov.cn/Typhoon/proxy2.jsp?u=weather_level&p=1";
+    tianqiUrl = [tianqiUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [self asiGetDic:@{kASIName: @"tianqi",
+                      kASIUrl: tianqiUrl}];
+    
+}
+#pragma mark - ASIHTTPRequest ----------------------------------------
+- (void)asiGetFinished:(ASIHTTPRequest *)rq {
+    NSString *requestString = [rq responseString];
+    id data = [requestString objectFromJSONString];
+    DLog(@"%@",data);
+    
+    NSString * asiname = [rq.userInfo objectForKeyNotNull:kASIName];
+    
+    if ([asiname isEqualToString:@"tianqi"] && [data isKindOfClass:[NSArray class]]) {
+        for (NSArray * pArray in data) {
+            
+            [myMapView addAnnotation:[TianQiPoint itemFormArray:pArray]];
+            
+        }
+    }
+    
+    [self mapRect];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

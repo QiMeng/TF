@@ -23,16 +23,19 @@
     
     TianQiPoint * p = [[TianQiPoint alloc]init];
     
+    p.city = [array objectAtIndex:0];
     p.jd = [[array objectAtIndex:2] floatValue];
     p.wd = [[array objectAtIndex:1] floatValue];
+    p.riqi = [array objectAtIndex:3];
+    p.weather = [array objectAtIndex:4];
+    p.wendu0 = [array objectAtIndex:5];
+    p.wendu1 = [array objectAtIndex:7];
+    p.tm = [array objectAtIndex:13];
     
-    
-    p.title = [array objectAtIndex:0];
-    p.subtitle = [array objectAtIndex:4];
-    
+    p.title = p.city;
+    p.subtitle = p.weather;
     
     p.coordinate = CLLocationCoordinate2DMake(p.wd ,p.jd);
-    
     
     return p;
 }

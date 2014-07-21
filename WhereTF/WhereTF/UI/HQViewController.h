@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 QiMengJin_LYS. All rights reserved.
 //
 
-#import "QMMapViewController.h"
+#import "WhereTFViewController.h"
 @class HQInfoView;
-@interface HQViewController : QMMapViewController {
+@interface HQViewController : WhereTFViewController {
     
     
     HQInfoView * infoView;
