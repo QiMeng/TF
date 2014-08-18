@@ -7,7 +7,15 @@
 //
 
 #import "QMMapViewController.h"
+#import "QMPoint.h"
+#import "QMAnnotationView.h"
 
-@interface WhereTFViewController : QMMapViewController
+@interface WhereTFViewController : QMMapViewController {
+    
+        QMPoint * currentPoint;
+    
+        CGSize calloutViewSize;
+    
+}
 
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A972401A-B2AE-48D0-8BE3-EEFA68CED879</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WhereTF</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B09939E1-DB5C-416A-92E2-8D63B2C22FA5</key>
+		<string>https://github.com/QiMeng/TF.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WhereTF/WhereTF.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B09939E1-DB5C-416A-92E2-8D63B2C22FA5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/QiMeng/TF.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B09939E1-DB5C-416A-92E2-8D63B2C22FA5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B09939E1-DB5C-416A-92E2-8D63B2C22FA5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TF</string>
+		</dict>
+	</array>
+</dict>
+</plist>

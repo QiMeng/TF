@@ -71,6 +71,61 @@
     [self mapRect];
     
 }
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
+    if ([view.annotation isKindOfClass:[MKUserLocation class]]) {
+        // 点击当前位置
+        return;
+    }
+    if (!currentPoint) {
+        currentPoint = [[QMPoint alloc]init];
+    }
+    TianQiPoint *pinAnnotation = (TianQiPoint *)view.annotation;
+
+    currentPoint.coordinate = pinAnnotation.coordinate;
+    currentPoint.data = pinAnnotation;
+
+    [myMapView addAnnotations:@[currentPoint]];
+    [myMapView setCenterCoordinate:view.annotation.coordinate animated:YES];
+    [myMapView selectAnnotation:currentPoint animated:YES];
+    
+    
+}
+
+- (void)changeAnnotationView:(QMAnnotationView *)view  {
+    
+    if ([view isKindOfClass:[QMAnnotationView class]]) {
+        TianQiPoint * point = currentPoint.data;
+        UILabel * pTitle = (UILabel *)[view.contentView viewWithTag:100];
+        if (!pTitle) {
+            pTitle = [UILabel allocLabelFrame:CGRectMake(0, 0, view.contentView.width, 30)
+                                         text:@""
+                                         font:[UIFont boldSystemFontOfSize:14]
+                                    textColor:[UIColor blackColor]
+                                      bgColor:nil
+                               textAlignament:NSTextAlignmentCenter
+                             autoresizingMask:UIViewAutoresizingNone];
+            pTitle.tag = 100;
+            [view.contentView addSubview:pTitle];
+        }
+        pTitle.text = point.city;
+        
+        
+    }
+}
+
+
+
+- (void)annotationView:(MKAnnotationView *)view {
+    
+    view.backgroundColor = [UIColor greenColor];
+    view.image = [UIImage imageNamed:@"cog"];
+    
+}
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

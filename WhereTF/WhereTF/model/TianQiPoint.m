@@ -31,10 +31,7 @@
     p.wendu0 = [array objectAtIndex:5];
     p.wendu1 = [array objectAtIndex:7];
     p.tm = [array objectAtIndex:13];
-    
-    p.title = p.city;
-    p.subtitle = p.weather;
-    
+
     p.coordinate = CLLocationCoordinate2DMake(p.wd ,p.jd);
     
     return p;

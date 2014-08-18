@@ -79,6 +79,8 @@
 		F0A24FAF197BC2E500F4BDE4 /* HQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A24FAE197BC2E500F4BDE4 /* HQViewController.m */; };
 		F0A24FB2197BC2EC00F4BDE4 /* TFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A24FB1197BC2EC00F4BDE4 /* TFViewController.m */; };
 		F0A24FB5197BD68000F4BDE4 /* HQInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A24FB4197BD68000F4BDE4 /* HQInfoView.m */; };
+		F0A88F5A1983A85B001A1DB5 /* QMAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A88F571983A85B001A1DB5 /* QMAnnotationView.m */; };
+		F0A88F5B1983A85B001A1DB5 /* QMPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A88F591983A85B001A1DB5 /* QMPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +198,10 @@
 		F0A24FB1197BC2EC00F4BDE4 /* TFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFViewController.m; sourceTree = "<group>"; };
 		F0A24FB3197BD68000F4BDE4 /* HQInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQInfoView.h; sourceTree = "<group>"; };
 		F0A24FB4197BD68000F4BDE4 /* HQInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQInfoView.m; sourceTree = "<group>"; };
+		F0A88F561983A85B001A1DB5 /* QMAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMAnnotationView.h; sourceTree = "<group>"; };
+		F0A88F571983A85B001A1DB5 /* QMAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMAnnotationView.m; sourceTree = "<group>"; };
+		F0A88F581983A85B001A1DB5 /* QMPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMPoint.h; sourceTree = "<group>"; };
+		F0A88F591983A85B001A1DB5 /* QMPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +329,10 @@
 				F0A24F21197BC12400F4BDE4 /* QMViewController.m */,
 				F0A24F22197BC12400F4BDE4 /* QMWebViewController.h */,
 				F0A24F23197BC12400F4BDE4 /* QMWebViewController.m */,
+				F0A88F561983A85B001A1DB5 /* QMAnnotationView.h */,
+				F0A88F571983A85B001A1DB5 /* QMAnnotationView.m */,
+				F0A88F581983A85B001A1DB5 /* QMPoint.h */,
+				F0A88F591983A85B001A1DB5 /* QMPoint.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -723,6 +733,7 @@
 			files = (
 				F0A24F78197BC12400F4BDE4 /* UILabel+QM_Category.m in Sources */,
 				F089CC6D197D4FAE00EB60F5 /* TQListViewController.m in Sources */,
+				F0A88F5B1983A85B001A1DB5 /* QMPoint.m in Sources */,
 				F0A24FB2197BC2EC00F4BDE4 /* TFViewController.m in Sources */,
 				F0A24F73197BC12400F4BDE4 /* QMWebViewController.m in Sources */,
 				F0A24F75197BC12400F4BDE4 /* NSString+QM_Category.m in Sources */,
@@ -735,6 +746,7 @@
 				F0A24F9F197BC12400F4BDE4 /* TaiFengPoint.m in Sources */,
 				F0A24F77197BC12400F4BDE4 /* UIImage+QM_Category.m in Sources */,
 				F0A24F9E197BC12400F4BDE4 /* HaiQuType.m in Sources */,
+				F0A88F5A1983A85B001A1DB5 /* QMAnnotationView.m in Sources */,
 				F0A24FAC197BC2DC00F4BDE4 /* YJViewController.m in Sources */,
 				F0A24EFD197BC07D00F4BDE4 /* ViewController.m in Sources */,
 				F0A24EF7197BC07D00F4BDE4 /* AppDelegate.m in Sources */,
